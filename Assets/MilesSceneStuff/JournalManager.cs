@@ -4,15 +4,27 @@ using UnityEngine;
 
 public class JournalManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public Animator myAnim;
+
+    private void Update()
     {
-        
+        MenuCheck();   
     }
 
-    // Update is called once per frame
-    void Update()
+
+    void MenuCheck()
     {
-        
+        if (Input.GetKey(KeyCode.E))
+        {
+            myAnim.SetBool("menuUp", true);
+        }
+
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            myAnim.SetBool("menuUp", false);
+        }
+
     }
+
+
 }
