@@ -18,9 +18,9 @@ public class JournalManager : MonoBehaviour
     public GameObject newPageLeft;
     public GameObject newPageRight;
 
-    public int pagesMax = 10;
-
-
+    public int pagesMax = 9;
+    public float alpha;
+    
     private void Start()
     {
         newPageLeft.transform.position = new Vector3(pg1.transform.position.x, pg1.transform.position.y);
@@ -37,6 +37,8 @@ public class JournalManager : MonoBehaviour
     {
         MenuCheck();
         turnPageKeys();
+        pg2Checker();
+
     }
 
 
@@ -93,7 +95,21 @@ public class JournalManager : MonoBehaviour
         pageType.transform.position = new Vector3(pagePlacement.transform.position.x, pagePlacement.transform.position.y);
         pageType.transform.SetParent(pagePlacement.transform);
         pageType.GetComponent<SpriteRenderer>().sprite = pageSprite[pageIndex];
+    }
 
+
+    void pg2Checker()
+    {
+       
+        if (pagesMax == (pageSprite.Count - 1))
+        {
+            newPageRight.GetComponent<SpriteRenderer>().material.color = new Color(1f, 1f, 1f, 1f);
+        } else
+        {
+            newPageRight.GetComponent<SpriteRenderer>().material.color = new Color(1f, 1f, 1f, 0f);
+        }
+
+        
     }
 
 

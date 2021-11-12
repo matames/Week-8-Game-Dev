@@ -43,6 +43,7 @@ public class Move : MonoBehaviour
     {
         if(collision.gameObject.tag == "newPage")
         {
+
             pageManager.GetComponent<JournalManager>().pagesMax += 1;
             pageManager.GetComponent<JournalManager>().pageSprite.Add(collision.gameObject.GetComponent<SpriteRenderer>().sprite);
             Destroy(collision.gameObject);
